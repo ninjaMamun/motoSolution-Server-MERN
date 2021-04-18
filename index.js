@@ -192,14 +192,6 @@ client.connect(err => {
 });
 
 
-
-
-
-
-
-
-
-
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`)
 });
