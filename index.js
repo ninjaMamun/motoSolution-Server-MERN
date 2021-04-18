@@ -125,10 +125,6 @@ client.connect(err => {
 
 
 
-
-
-
-
     app.post('/addAdmin', (req, res) => {
         const admin = req.body;
         adminCollection.insertOne(admin)
@@ -187,7 +183,18 @@ client.connect(err => {
             })
     })
 
- 
+    app.delete('/deleteService/:id', (req, res) => {
+        console.log(req.params.id)
+        serviceCollection.deleteOne({ _id: ObjectID(req.params.id) })
+            .then(result => {
+                res.send(result.deletedCount > 0);
+            })
+    })
+
+
+
+
+
 
 });
 
